@@ -15,6 +15,7 @@ import com.project.libs.data.source.network.model.response.GetFilterListOptionRe
 import com.project.libs.data.source.network.model.response.GetSupplierByIdResponse
 import com.project.libs.data.source.network.model.response.SupplierListResponse
 import com.project.libs.data.source.network.services.SupplierApi
+import com.project.libs.util.Util
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -22,28 +23,44 @@ class SupplierApiDataSourceImp @Inject constructor(
     private val supplierApi: SupplierApi
 ): SupplierApiDataSource {
     override suspend fun getSuppliers(token: String, queryParams: GetSupplierListParamsRequest): Response<SupplierListResponse> {
-        return supplierApi.getSuppliers(token, queryParams.toQueryMap())
+        return try {
+            supplierApi.getSuppliers(token, queryParams.toQueryMap())
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun getSupplierById(
         token: String,
         id: String
     ): Response<GetSupplierByIdResponse> {
-        return supplierApi.getSupplierById(token, id)
+        return try {
+            supplierApi.getSupplierById(token, id)
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun editStatusSupplier(
         token: String,
         body: EditSupplierStatusBodyRequest
     ): Response<Unit> {
-        return supplierApi.editStatusSupplier(token, body)
+        return try {
+            supplierApi.editStatusSupplier(token, body)
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun createSupplier(
         token: String,
         body: CreateEditSupplierBodyRequest
     ): Response<CreateSupplierResponse> {
-        return supplierApi.createSupplier(token, body)
+        return try {
+            supplierApi.createSupplier(token, body)
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun editSupplier(
@@ -51,31 +68,52 @@ class SupplierApiDataSourceImp @Inject constructor(
         id: String,
         body: CreateEditSupplierBodyRequest
     ): Response<Unit> {
-        return supplierApi.editSupplier(token, id, body)
+        return try {
+            supplierApi.editSupplier(token, id, body)
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
-    override suspend fun getChangelog(token: String, queryParams: GetChangelogQueryParamsRequest): Response<GetChangelogListResponse> {
-        return supplierApi.getChangelog(token, queryParams.toQueryMap())
+    override suspend fun getChangelog(
+        token: String,
+        queryParams: GetChangelogQueryParamsRequest
+    ): Response<GetChangelogListResponse> {
+        return try {
+            supplierApi.getChangelog(token, queryParams.toQueryMap())
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun deleteSupplier(
         token: String,
         body: DeleteSupplierBodyRequest
     ): Response<ApiResponse<Unit>> {
-        return supplierApi.deleteSupplier(token, body)
+        return try {
+            supplierApi.deleteSupplier(token, body)
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun getFilterListOption(
         token: String,
     ): Response<GetFilterListOptionResponse> {
-        return supplierApi.getFilterListOption(token, GetFilterListOptionRequest().toQueryMap())
+        return try {
+            supplierApi.getFilterListOption(token, GetFilterListOptionRequest().toQueryMap())
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
 
     override suspend fun getChangelogOption(
         token: String,
     ): Response<GetChangelogFilterOptionResponse> {
-        return supplierApi.getChangelogOption(token, GetChangelogFilterOptionRequest().toQueryMap())
+        return try {
+            supplierApi.getChangelogOption(token, GetChangelogFilterOptionRequest().toQueryMap())
+        } catch (e: Exception) {
+            Util.handleApiError(e)
+        }
     }
-
-
 }
