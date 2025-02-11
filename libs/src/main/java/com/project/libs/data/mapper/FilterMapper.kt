@@ -1,5 +1,6 @@
 package com.project.libs.data.mapper
 
+import android.R.attr.data
 import com.project.libs.data.model.ChangelogFilterEntity
 import com.project.libs.data.model.FilterListOptionEntity
 import com.project.libs.data.source.network.model.response.GetChangelogFilterOptionResponse
@@ -8,35 +9,35 @@ import javax.inject.Inject
 
 class FilterMapper @Inject constructor() {
 
-    private fun mapSupplierOption(data: GetFilterListOptionResponse.Data.SupplierOption): FilterListOptionEntity.SupplierOption {
+    fun mapSupplierOption(data: GetFilterListOptionResponse.Data.SupplierOption): FilterListOptionEntity.SupplierOption {
         return FilterListOptionEntity.SupplierOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapCityOption(data: GetFilterListOptionResponse.Data.CityOption): FilterListOptionEntity.CityOption {
+    fun mapCityOption(data: GetFilterListOptionResponse.Data.CityOption): FilterListOptionEntity.CityOption {
         return FilterListOptionEntity.CityOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapItemNameOption(data: GetFilterListOptionResponse.Data.ItemNameOption): FilterListOptionEntity.ItemNameOption {
+    fun mapItemNameOption(data: GetFilterListOptionResponse.Data.ItemNameOption): FilterListOptionEntity.ItemNameOption {
         return FilterListOptionEntity.ItemNameOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapModifiedByOption(data: GetFilterListOptionResponse.Data.ModifiedByOption): FilterListOptionEntity.ModifiedByOption {
+    fun mapModifiedByOption(data: GetFilterListOptionResponse.Data.ModifiedByOption): FilterListOptionEntity.ModifiedByOption {
         return FilterListOptionEntity.ModifiedByOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapStatusOption(data: GetFilterListOptionResponse.Data.StatusOption): FilterListOptionEntity.StatusOption {
+    fun mapStatusOption(data: GetFilterListOptionResponse.Data.StatusOption): FilterListOptionEntity.StatusOption {
         return FilterListOptionEntity.StatusOption(
             label = data.label,
             value = data.value
@@ -53,21 +54,21 @@ class FilterMapper @Inject constructor() {
         )
     }
 
-    private fun mapActionOption(data: GetChangelogFilterOptionResponse.Data.ActionOption): ChangelogFilterEntity.ActionOption {
+    fun mapActionOption(data: GetChangelogFilterOptionResponse.Data.ActionOption): ChangelogFilterEntity.ActionOption {
         return ChangelogFilterEntity.ActionOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapFieldOption(data: GetChangelogFilterOptionResponse.Data.FieldOption): ChangelogFilterEntity.FieldOption {
+    fun mapFieldOption(data: GetChangelogFilterOptionResponse.Data.FieldOption): ChangelogFilterEntity.FieldOption {
         return ChangelogFilterEntity.FieldOption(
             label = data.label,
             value = data.value
         )
     }
 
-    private fun mapModifiedByOption(data: GetChangelogFilterOptionResponse.Data.ModifiedByOption): ChangelogFilterEntity.ModifiedByOption {
+    fun mapModifiedByOption(data: GetChangelogFilterOptionResponse.Data.ModifiedByOption): ChangelogFilterEntity.ModifiedByOption {
         return ChangelogFilterEntity.ModifiedByOption(
             label = data.label,
             value = data.value

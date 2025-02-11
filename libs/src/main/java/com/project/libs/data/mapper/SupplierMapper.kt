@@ -64,18 +64,18 @@ class SupplierMapper @Inject constructor() {
         )
     }
 
-    fun mapChangelog(data: List<GetChangelogListResponse.Data.Data?>): List<ChangelogEntity>{
+    fun mapChangelog(data: List<GetChangelogListResponse.Data.Data>): List<ChangelogEntity> {
         return data.map {
             ChangelogEntity(
-                id = it?.id ?: "",
-                action = it?.action ?: "",
-                field = it?.field ?: "",
-                oldValue = it?.oldValue ?: "",
-                newValue = it?.newValue ?: "",
-                modifiedBy = it?.modifiedBy ?: "",
-                objectX = it?.objectX ?: "",
-                objectName = it?.objectName ?: "",
-                timeStamp = it?.timeStamps ?: "",
+                id = it.id,
+                action = it.action,
+                field = it.field,
+                oldValue = it.oldValue,
+                newValue = it.newValue,
+                modifiedBy = it.modifiedBy,
+                objectX = it.objectX,
+                objectName = it.objectName,
+                timeStamp = it.timeStamps,
             )
         }
     }

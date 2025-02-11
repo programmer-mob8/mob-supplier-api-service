@@ -15,7 +15,7 @@ data class GetChangelogListResponse(
         @SerializedName("totalRecords")
         val totalRecords: Int = 0,
         @SerializedName("data")
-        val `data`: List<Data?> = listOf()
+        val `data`: List<Data> = listOf()
     ) {
         data class Data(
             @SerializedName("_id")

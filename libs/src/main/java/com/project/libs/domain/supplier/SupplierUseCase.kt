@@ -56,7 +56,7 @@ class GetFilterListOptionUseCase @Inject constructor(
     operator fun invoke() = repository.getFilterListOption()
 }
 
-class getChangelogOptionUseCase @Inject constructor(
+class GetChangelogOptionUseCase @Inject constructor(
     private val repository: SupplierRepository
 ) {
     operator fun invoke() = repository.getChangelogOption()
