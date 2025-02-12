@@ -68,6 +68,18 @@ class SupplierApiDataSourceTest {
         assertThat(result).isEqualTo(response)
     }
 
+    @Test
+    fun `get suppliers with network error`() = runTest {
+        val token = "valid_token"
+        val queryParams = GetSupplierListParamsRequest()
+        val response = Response.error<SupplierListResponse>(500, "Network error".toResponseBody())
+
+        `when`(supplierApi.getSuppliers(token, queryParams.toQueryMap())).thenReturn(response)
+
+        val result = supplierApiDataSource.getSuppliers(token, queryParams)
+
+        assertThat(result).isEqualTo(response)
+    }
 
     // Test for getSupplierById
     @Test

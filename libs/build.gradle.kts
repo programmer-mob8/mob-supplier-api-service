@@ -72,6 +72,7 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.core.testing)
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
 
 }
 
